@@ -1,0 +1,74 @@
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
+import numpy as np
+import random
+from fractions import Fraction
+
+
+op_num = random.randint(1,10) # 随机生成的操作数个数
+pro_frac_num = random.randint(0,op_num) # 随机生成的真分数个数
+int_num = op_num + 1 - pro_frac_num # 生成整数个数
+
+op = []                        #记录生成的op_num个四则运算操作数
+for i in xrange(op_num):
+    temp = random.choice(['＋','－','×','÷'])
+    op.append(temp)
+
+num = []      # 记录生成的op_num+1个数（包括整数和真分数）
+for i in xrange(int_num):
+    temp = random.randint(0,99)
+    num.append(temp)
+for i in xrange(pro_frac_num):
+    denominator = random.randint(1,99)  # 分母（分母不为0）
+    numerator = random.randint(0,denominator-1) # 分子
+    proper_fraction = Fraction(numerator,denominator) #生成随机真分数
+    num.append(proper_fraction)
+
+problem = []                #生成题目
+for i in xrange(op_num):
+    number = random.choice(num)
+    problem.append(number)
+    num.remove(number)
+    operator = random.choice(op)
+    problem.append(operator)
+    op.remove(operator)
+    if i == op_num-1:
+        problem.append(num[0])
+
+display_problem = ''
+for i in problem:
+    if type(i) != 'str':
+        temp = str(i)
+        display_problem = display_problem +temp
+print display_problem          # 打印题目
+
+# print type(Fraction(2,3))
+# print type('÷')
+# print type(1)
+result = ''
+for i in problem:
+    if type(i) == type(Fraction(2,3)):
+        temp = '(' + str(float(i)) + ')'
+    elif type(i) == type(1):
+        temp = str(float(i))
+    else:
+        if i == '＋':
+            temp = '+'
+        elif i == '－':
+            temp = '-'
+        elif i == '×':
+            temp = '*'
+        else:
+            temp = '/'
+    result = result + temp
+# print  result
+print eval(result)  # 计算结果
+
+
+
+
+
+
+
+
+
