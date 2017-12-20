@@ -16,7 +16,8 @@ for i in xrange(op_num):
 
 num = []      # 记录生成的op_num+1个数（包括整数和真分数）
 for i in xrange(int_num):
-    temp = random.randint(0,99)
+    int_number = random.randint(0,99)
+    temp = Fraction(int_number, 1)  # 生成随机真分数
     num.append(temp)
 for i in xrange(pro_frac_num):
     denominator = random.randint(1,99)  # 分母（分母不为0）
@@ -37,20 +38,16 @@ for i in xrange(op_num):
 
 display_problem = ''
 for i in problem:
-    if type(i) != 'str':
-        temp = str(i)
-        display_problem = display_problem +temp
+    temp = str(i)
+    display_problem = display_problem +temp
 print display_problem          # 打印题目
 
-# print type(Fraction(2,3))
-# print type('÷')
-# print type(1)
 result = ''
 for i in problem:
     if type(i) == type(Fraction(2,3)):
-        temp = '(' + str(float(i)) + ')'
-    elif type(i) == type(1):
-        temp = str(float(i))
+        numerator_temp = i.numerator
+        denominator_temp = i.denominator
+        temp = 'Fraction(%d,%d)'%(numerator_temp,denominator_temp)
     else:
         if i == '＋':
             temp = '+'
@@ -61,8 +58,11 @@ for i in problem:
         else:
             temp = '/'
     result = result + temp
-# print  result
-print eval(result)  # 计算结果
+
+# print result
+final_result = eval(result)
+print final_result
+
 
 
 
