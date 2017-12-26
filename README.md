@@ -4,8 +4,10 @@
 write by hz5612777
 
 采用的解释器为python2.7
+
 要在windows的cmd下运行，安装好python2.7解释器后运行Calculator_cmd即可
-要在pycharm等开发环境或者Linux操作系统内运行，直接运行Calculator即可
+
+要在pycharm等开发环境内运行，直接运行Calculator即可
 
 2017/12/20 14:10
 程序设计的计算题包含加减乘除共四种运算，运算符个数在1~10个，操作数包括整数和真分数两种，并提供了该计算题的答案（以小数形式呈现）。
