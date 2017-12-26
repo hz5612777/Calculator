@@ -21,11 +21,11 @@ def produce_operators(op_num=3):
 def produce_numbers(int_num=2,pro_frac_num=2):
     num = []                      # 记录生成的op_num+1个数（包括整数和真分数）
     for i in xrange(int_num):
-        int_number = random.randint(0,1)
+        int_number = random.randint(0,99)
         temp = Fraction(int_number, 1)  # 生成随机整数
         num.append(temp)
     for i in xrange(pro_frac_num):
-        denominator = random.randint(1,2)  # 分母（分母不为0）
+        denominator = random.randint(1,99)  # 分母（分母不为0）
         numerator = random.randint(0,denominator-1) # 分子
         proper_fraction = Fraction(numerator,denominator) # 生成随机真分数
         num.append(proper_fraction)
