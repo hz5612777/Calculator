@@ -106,7 +106,7 @@ def isrepetition(problem):
 # 对答题者进行测试
 def test():
     global message_flag
-    op_num = random.randint(1,2)  # 随机生成的运算符个数
+    op_num = random.randint(1,10)  # 随机生成的运算符个数
     pro_frac_num = random.randint(0,op_num)  # 随机生成的真分数个数
     int_num = op_num + 1 - pro_frac_num  # 生成整数个数
     op = produce_operators(op_num)        # 随机生成指定数量的运算符
